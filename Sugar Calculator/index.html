@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Sugar Calculator</h1>
+    <p>Caster: 8g / 100g of layang2</p>
+    <p>Fine: 4g / 100g of layang2</p>
+    <br>
+    <label for="weight">Input layang2 weight:</label><br>
+    <input type="number" id="weight">
+    <p id="caster">caster = 0g</p>
+    <p id="fine">fine = 0g</p>
+
+    <script>
+        let caster = document.getElementById("caster");
+        let fine = document.getElementById("fine");
+        let input = document.querySelector("input");
+        let casterValue = 8;
+        let fineValue = casterValue * 0.5;
+
+        input.addEventListener("change", (event)=>{
+            caster.innerHTML = "caster = " + (event.target.value / 100 * casterValue) + "g";
+            fine.innerHTML = "fine = " + (event.target.value / 100 * fineValue) + "g";
+        })
+        
+    </script>
+
+</body>
+</html>
