@@ -11,7 +11,10 @@
     <p>Caster: 8g / 100g of layang2</p>
     <p>Fine: 4g / 100g of layang2</p>
     <br>
-    <label for="weight">Input layang2 weight:</label><br>
+    <label for="offset">Input offset weight (g):</label><br>
+    <input type="number" id="offset">
+    <br>
+    <label for="weight">Input layang2 weight (g):</label><br>
     <input type="number" id="weight">
     <p id="caster">caster = 0g</p>
     <p id="fine">fine = 0g</p>
@@ -19,13 +22,21 @@
     <script>
         let caster = document.getElementById("caster");
         let fine = document.getElementById("fine");
-        let input = document.querySelector("input");
+        let input = document.getElementById("weight");
+        let offset = document.getElementById("offset");
         let casterValue = 8;
         let fineValue = casterValue * 0.5;
 
         input.addEventListener("change", (event)=>{
-            caster.innerHTML = "caster = " + (event.target.value / 100 * casterValue) + "g";
-            fine.innerHTML = "fine = " + (event.target.value / 100 * fineValue) + "g";
+            let value = (input.value - offset.value) / 100;
+            caster.innerHTML = "caster = " + (value * casterValue) + "g";
+            fine.innerHTML = "fine = " + (value * fineValue) + "g";
+        })
+
+        offset.addEventListener("change", (event)=>{
+            let value = (input.value - offset.value) / 100;
+            caster.innerHTML = "caster = " + (value * casterValue) + "g";
+            fine.innerHTML = "fine = " + (value * fineValue) + "g";
         })
         
     </script>
