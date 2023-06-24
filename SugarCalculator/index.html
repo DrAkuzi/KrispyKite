@@ -28,13 +28,13 @@
         let fineValue = casterValue * 0.5;
 
         input.addEventListener("change", (event)=>{
-            let value = (input.value - offset.value) / 100;
+            let value = (input.valueAsNumber - offset.valueAsNumber) / 100;
             caster.innerHTML = "caster = " + (value * casterValue) + "g";
             fine.innerHTML = "fine = " + (value * fineValue) + "g";
         })
 
         offset.addEventListener("change", (event)=>{
-            let value = (input.value - offset.value) / 100;
+            let value = (input.valueAsNumber - offset.valueAsNumber) / 100;
             caster.innerHTML = "caster = " + (value * casterValue) + "g";
             fine.innerHTML = "fine = " + (value * fineValue) + "g";
         })
